@@ -7,6 +7,13 @@ const NewFlat = () => {
     setName(e.target.value);
   };
 
+  const [status, setStatus] = useState("Anytime Viewing");
+  const handleChangeStatus = (e: any) => {
+    e.preventDefault();
+    setStatus(e.target.value);
+    console.log(status);
+  };
+  console.log(status);
   const handleCreateButton = () => {};
 
   return (
@@ -20,7 +27,11 @@ const NewFlat = () => {
       />
       {console.log(name)}
       Status
-      <input />
+      <select value={status} onChange={handleChangeStatus}>
+        <option value="Anytime Viewing">Anytime Viewing</option>
+        <option value="Booked">Booked</option>
+        <option value="Not Accepted">Not Accepted</option>
+      </select>
       Image
       <input />
       Content
