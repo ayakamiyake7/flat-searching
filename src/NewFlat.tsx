@@ -28,7 +28,9 @@ const NewFlat = () => {
     setContent(e.target.value);
   };
 
-  const handleCreateButton = (name: string, status: string, images: any) => {};
+  const handleClickAdd = () => {
+    console.log(name, status, images, content);
+  };
 
   return (
     <>
@@ -92,7 +94,7 @@ const NewFlat = () => {
         onChange={handleInputContent}
       />
       {console.log(content)}
-      <button onClick={() => handleCreateButton}>Create</button>
+      <button onClick={handleClickAdd}>Create</button>
     </>
   );
 };
