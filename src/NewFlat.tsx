@@ -22,7 +22,13 @@ const NewFlat = () => {
     setImages(imageList);
   };
 
-  const handleCreateButton = () => {};
+  const [content, setContent] = useState("");
+  const handleInputContent = (e: any) => {
+    e.preventDefault();
+    setContent(e.target.value);
+  };
+
+  const handleCreateButton = (name: string, status: string, images: any) => {};
 
   return (
     <>
@@ -80,8 +86,13 @@ const NewFlat = () => {
         )}
       </ImageUploading>
       Content
-      <input />
-      <button onClick={handleCreateButton}>Create</button>
+      <textarea
+        placeholder="Enter the content"
+        value={content}
+        onChange={handleInputContent}
+      />
+      {console.log(content)}
+      <button onClick={() => handleCreateButton}>Create</button>
     </>
   );
 };
