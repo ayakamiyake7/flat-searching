@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
 
 const NewFlat = () => {
+  const [flats, setFlats] = useState("");
+
   const [name, setName] = useState("");
   const handleInputName = (e: any) => {
     e.preventDefault();
@@ -30,6 +32,15 @@ const NewFlat = () => {
 
   const handleClickAdd = () => {
     console.log(name, status, images, content);
+    const newFlats: any = [
+      {
+        name,
+        status,
+        images,
+        content,
+      },
+    ];
+    setFlats(newFlats);
   };
 
   return (
