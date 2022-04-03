@@ -1,46 +1,49 @@
 import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
+import { useRecoilState } from "recoil";
+import { flatState } from "./components/states/flatState";
 
 const NewFlat = () => {
-  const [flats, setFlats] = useState("");
+  const [flats, setFlats] = useRecoilState(flatState);
 
   const [name, setName] = useState("");
+  const [status, setStatus] = useState("Anytime Viewing");
+  const [images, setImages] = useState([]);
+  const [content, setContent] = useState("");
+  const id = new Date().getTime().toString(16);
+
   const handleInputName = (e: any) => {
     e.preventDefault();
     setName(e.target.value);
   };
 
-  const [status, setStatus] = useState("Anytime Viewing");
   const handleChangeStatus = (e: any) => {
     e.preventDefault();
     setStatus(e.target.value);
-    console.log(status);
   };
-  console.log(status);
 
-  const [images, setImages] = useState([]);
   const handleChangeImages = (imageList: any, addUpdateIndex: any) => {
-    console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
 
-  const [content, setContent] = useState("");
   const handleInputContent = (e: any) => {
     e.preventDefault();
     setContent(e.target.value);
   };
 
   const handleClickAdd = () => {
-    console.log(name, status, images, content);
     const newFlats: any = [
       {
         name,
         status,
         images,
         content,
+        id,
       },
+      ...flats,
     ];
     setFlats(newFlats);
+    setName("");
   };
 
   return (
@@ -52,7 +55,6 @@ const NewFlat = () => {
         value={name}
         onChange={handleInputName}
       />
-      {console.log(name)}
       Status
       <select value={status} onChange={handleChangeStatus}>
         <option value="Anytime Viewing">Anytime Viewing</option>
@@ -104,7 +106,6 @@ const NewFlat = () => {
         value={content}
         onChange={handleInputContent}
       />
-      {console.log(content)}
       <button onClick={handleClickAdd}>Create</button>
     </>
   );
