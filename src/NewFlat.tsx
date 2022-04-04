@@ -97,6 +97,7 @@ const NewFlat = () => {
                 </div>
               </div>
             ))}
+            {console.log("images=##", images[0])}
           </div>
         )}
       </ImageUploading>

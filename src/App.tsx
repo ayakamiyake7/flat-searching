@@ -12,16 +12,15 @@ function App() {
     <>
       <p>Flat Searching</p>
       <AddButton />
-
       <h1>Flat List</h1>
       {flats.map((flat: Items) => (
         <section key={flat.id}>
-          <img src="" />
+          <img src={flat.images[0]} alt="" width="100" />
           <span>{flat.status}</span>
           <h2>{flat.name}</h2>
+          {console.log("##images=", flat.images[0])}
         </section>
       ))}
-
       <button onClick={handleClickDetail}>Detail</button>
     </>
   );
