@@ -15,10 +15,9 @@ function App() {
       <h1>Flat List</h1>
       {flats.map((flat: Items) => (
         <section key={flat.id}>
-          <img src={flat.images[0]} alt="" width="100" />
+          <img src={flat.images[0]["data_url"]} alt="" width="100" />
           <span>{flat.status}</span>
           <h2>{flat.name}</h2>
-          {console.log("##images=", flat.images[0])}
         </section>
       ))}
       <button onClick={handleClickDetail}>Detail</button>

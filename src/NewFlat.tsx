@@ -90,14 +90,13 @@ const NewFlat = () => {
             <button onClick={onImageRemoveAll}>Remove all images</button>
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
-                <img src={image["data_url"]} alt="" width="100" />
+                <img src={image.data_url} alt="" width="100" />
                 <div className="image-item__btn-wrapper">
                   <button onClick={() => onImageUpdate(index)}>Update</button>
                   <button onClick={() => onImageRemove(index)}>Remove</button>
                 </div>
               </div>
             ))}
-            {console.log("images=##", images[0])}
           </div>
         )}
       </ImageUploading>
