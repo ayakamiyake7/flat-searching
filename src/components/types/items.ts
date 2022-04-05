@@ -2,6 +2,6 @@ export type Items = {
   id: string;
   name: string;
   status: string;
-  images: [];
+  images: any;
   content: string;
 };
