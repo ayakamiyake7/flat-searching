@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
+import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { flatState } from "./components/states/flatState";
 
@@ -106,7 +107,9 @@ const NewFlat = () => {
         value={content}
         onChange={handleInputContent}
       />
-      <button onClick={handleClickAdd}>Create</button>
+      <Link to="/">
+        <button onClick={handleClickAdd}>Create</button>
+      </Link>
     </>
   );
 };
