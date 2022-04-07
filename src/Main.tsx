@@ -3,6 +3,7 @@ import AddButton from "./components/atoms/buttons/AddButton";
 import { Items } from "./components/types/items";
 import { useRecoilState } from "recoil";
 import { flatState } from "./components/states/flatState";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   const [flats, setFlats] = useRecoilState(flatState);
@@ -18,9 +19,11 @@ const Main = () => {
           <img src={flat.images[0]["data_url"]} alt="" width="100" />
           <span>{flat.status}</span>
           <h2>{flat.name}</h2>
+          <Link to={`posts/${flat.id}`}>
+            <button onClick={handleClickDetail}>Detail</button>
+          </Link>
         </section>
       ))}
-      <button onClick={handleClickDetail}>Detail</button>
     </>
   );
 };
