@@ -2,12 +2,18 @@ import React from "react";
 import AddButton from "./components/atoms/buttons/AddButton";
 import { Items } from "./components/types/items";
 import { useRecoilState } from "recoil";
-import { flatState } from "./components/states/flatState";
 import { Link } from "react-router-dom";
+import { flatState } from "./components/states/flatState";
+import { detailState } from "./components/states/detaiState";
 
 const Main = () => {
   const [flats, setFlats] = useRecoilState(flatState);
-  const handleClickDetail = () => {};
+  const setDetailFlat: any = useRecoilState(detailState);
+
+  const handleClickDetail = (selectedFlat: any) => {
+    // setDetailFlat(selectedFlat);
+  };
+  // console.log(setDetailFlat);
 
   return (
     <>

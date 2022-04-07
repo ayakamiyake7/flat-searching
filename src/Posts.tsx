@@ -1,13 +1,19 @@
 import React from "react";
+import { useParams } from "react-router";
+import { useRecoilState } from "recoil";
+import { flatState } from "./components/states/flatState";
 
 const Posts = (props: any) => {
+  // const [flats, setFlats] = useRecoilState(flatState);
   const { id, name, status, images, content } = props;
-  console.log(props);
+  // const { id } = useParams();
+  // console.log(props);
+
   return (
     <>
       <button>Edit</button>
       <section>
-        <h1>Name</h1>
+        <h1>{props.name}</h1>
         <span>Status</span>
         <section>
           <h2>Image gallery</h2>
