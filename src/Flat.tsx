@@ -4,21 +4,23 @@ import { useRecoilState } from "recoil";
 import { flatState } from "./components/states/flatState";
 import { Items } from "./components/types/items";
 
-interface State {
-  id: string;
-}
+// interface State {
+//   id: string;
+// }
 
-const Flat = (flat: any) => {
+const Flat = (props: any) => {
   const [flats, setFlats] = useRecoilState(flatState);
-  const location = useLocation();
-  const { id } = location.state as State;
+  // const location = useLocation();
+  // const { id } = location.state as State;
+  const { name, status } = props;
+  console.log(props.name);
 
   const imageId = Math.floor(Math.random() * 10).toString();
 
   return (
     <>
       <button>Edit</button>
-      {flats.map((flat: Items, index) => {
+      {/* {flats.map((flat: Items, index) => {
         if (flat.id === id) {
           {
             console.log("location.state=", location.state);
@@ -50,7 +52,7 @@ const Flat = (flat: any) => {
             </section>
           );
         }
-      })}
+      })} */}
     </>
   );
 };

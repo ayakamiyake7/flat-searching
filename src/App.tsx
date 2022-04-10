@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="NewFlat" element={<NewFlat />} />
-        <Route path="/Flat/:id" element={<Flat />} />
+        <Route path="/Flat/:id" element={<Flat name="{props.name}" />} />
       </Routes>
     </BrowserRouter>
   );
