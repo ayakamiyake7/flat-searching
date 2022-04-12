@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { flatState } from "./components/states/flatState";
 
-const NewFlat = () => {
+const NewFlat = (props: any) => {
   const [flats, setFlats] = useRecoilState(flatState);
 
   const [name, setName] = useState("");

@@ -6,12 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { flatState } from "./components/states/flatState";
 import { detailState } from "./components/states/detaiState";
 
-const Main = () => {
+const Main = (props: any) => {
   const [flats, setFlats] = useRecoilState(flatState);
   const setDetailFlat: any = useRecoilState(detailState);
   const flat = useRecoilState(detailState);
 
-  const HandleClickDetail = (flat: Items) => {};
+  const HandleClickDetail = (flat: Items) => {
+      props.passDetail(flat)
+  };
 
   return (
     <>
