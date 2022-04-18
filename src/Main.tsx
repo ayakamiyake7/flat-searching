@@ -12,7 +12,7 @@ const Main = (props: any) => {
   const flat = useRecoilState(detailState);
 
   const HandleClickDetail = (flat: Items) => {
-      props.passDetail(flat)
+    props.passDetail(flat);
   };
 
   return (

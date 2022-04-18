@@ -13,20 +13,20 @@ function App() {
   // const [flats, setFlats] = useRecoilState(flatState);
   // console.log("App.tsx =", flats);
   // const flat = useRecoilState(detailState);
-    
-  const [ detailItem, setDetailItem ] = useState({});
-    
+
+  const [detailItem, setDetailItem] = useState({});
+
   const passDetail = (flat: Items) => {
-      console.log(flat)
-      setDetailItem(flat);
-  }
+    console.log(flat);
+    setDetailItem(flat);
+  };
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main passDetail={passDetail}/>} />
-        <Route path="NewFlat" element={<NewFlat/>} />
-        <Route path="/Flat/:id" element={<Flat flat={detailItem}/>} />
+        <Route path="/" element={<Main passDetail={passDetail} />} />
+        <Route path="NewFlat" element={<NewFlat />} />
+        <Route path="/Flat/:id" element={<Flat flat={detailItem} />} />
       </Routes>
     </BrowserRouter>
   );
