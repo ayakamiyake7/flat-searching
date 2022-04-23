@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Flat = (props: any) => {
   const { flat } = props;
 
+  const handleClickEdit = () => {
+    console.log("click");
+  };
+
   return (
     <>
-      <button>Edit</button>
+      <Link to={`flat/${flat.id}/edit`}>
+        <button onClick={handleClickEdit}>Edit</button>
+      </Link>
       <section>
         {flat ? (
           <>

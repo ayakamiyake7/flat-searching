@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NewFlat from "./NewFlat";
 import Main from "./Main";
 import Flat from "./Flat";
+import Edit from "./Edit";
 
 import { Items } from "./components/types/items";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Main passDetail={passDetail} />} />
         <Route path="NewFlat" element={<NewFlat />} />
         <Route path="/Flat/:id" element={<Flat flat={detailItem} />} />
+        <Route path="/Flat/:id/Edit" element={<Edit />} />
       </Routes>
     </BrowserRouter>
   );
