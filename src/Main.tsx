@@ -1,15 +1,11 @@
-import React from "react";
 import AddButton from "./components/atoms/buttons/AddButton";
 import { Items } from "./components/types/items";
 import { useRecoilState } from "recoil";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { flatState } from "./components/states/flatState";
-import { detailState } from "./components/states/detaiState";
 
 const Main = (props: any) => {
   const [flats, setFlats] = useRecoilState(flatState);
-  const setDetailFlat: any = useRecoilState(detailState);
-  const flat = useRecoilState(detailState);
 
   const handleClickDetail = (flat: any) => {
     props.passDetail(flat);
