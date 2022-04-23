@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NewFlat from "./NewFlat";
 import Main from "./Main";
 import Flat from "./Flat";
+import Edit from "./Edit";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { flatState } from "./components/states/flatState";
 import { detailState } from "./components/states/detaiState";
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="NewFlat" element={<NewFlat />} />
         <Route path="/Flat/:id" element={<Flat />} />
+        <Route path="/Flat/:id/Edit" element={<Edit />} />
       </Routes>
     </BrowserRouter>
   );

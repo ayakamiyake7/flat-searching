@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { flatState } from "./components/states/flatState";
 import { Items } from "./components/types/items";
@@ -15,9 +15,15 @@ const Flat = (flat: any) => {
 
   const imageId = Math.floor(Math.random() * 10).toString();
 
+  const handleClickEdit = () => {
+    console.log("click");
+  };
+
   return (
     <>
-      <button>Edit</button>
+      <Link to={`flat/${flat.id}/edit`}>
+        <button onClick={handleClickEdit}>Edit</button>
+      </Link>
       {flats.map((flat: Items, index) => {
         if (flat.id === id) {
           {
