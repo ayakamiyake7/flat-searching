@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { flatState } from "./components/states/flatState";
-import { Items } from "./components/types/items";
+import React from "react";
 
 const Flat = (props: any) => {
   const { flat } = props;
