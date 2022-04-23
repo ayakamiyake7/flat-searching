@@ -11,7 +11,7 @@ const Main = (props: any) => {
   const setDetailFlat: any = useRecoilState(detailState);
   const flat = useRecoilState(detailState);
 
-  const HandleClickDetail = (flat: Items) => {
+  const handleClickDetail = (flat: any) => {
     props.passDetail(flat);
   };
 
@@ -28,7 +28,7 @@ const Main = (props: any) => {
           <Link to={`flat/${flat.id}`} state={{ id: flat.id }}>
             <button
               onClick={() => {
-                HandleClickDetail(flat);
+                handleClickDetail(flat);
               }}
             >
               Detail
