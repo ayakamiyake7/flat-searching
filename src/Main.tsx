@@ -6,12 +6,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { flatState } from "./components/states/flatState";
 import { detailState } from "./components/states/detaiState";
 
-const Main = () => {
+const Main = (props: any) => {
   const [flats, setFlats] = useRecoilState(flatState);
   const setDetailFlat: any = useRecoilState(detailState);
   const flat = useRecoilState(detailState);
 
-  const HandleClickDetail = (flat: Items) => {};
+  const handleClickDetail = (flat: any) => {
+    props.passDetail(flat);
+    console.log("props=", props.passDetail(flat));
+    console.log("test=", props.test);
+  };
 
   return (
     <>
@@ -26,7 +30,7 @@ const Main = () => {
           <Link to={`flat/${flat.id}`} state={{ id: flat.id }}>
             <button
               onClick={() => {
-                HandleClickDetail(flat);
+                handleClickDetail(flat);
               }}
             >
               Detail

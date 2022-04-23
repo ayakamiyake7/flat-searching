@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NewFlat from "./NewFlat";
 import Main from "./Main";
@@ -6,19 +7,30 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { flatState } from "./components/states/flatState";
 import { detailState } from "./components/states/detaiState";
 
-function App(props: any) {
+import { Items } from "./components/types/items";
+
+function App() {
   // const [flats, setFlats] = useRecoilState(flatState);
   // console.log("App.tsx =", flats);
   // const flat = useRecoilState(detailState);
-  console.log(props);
+
+  const [detailItem, setDetailItem] = useState({});
+  console.log("detailItem", detailItem);
+
+  const passDetail = (flat: Items) => {
+    console.log(flat);
+    setDetailItem(flat);
+  };
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route
+          path="/"
+          element={<Main passDetail={passDetail} test="canada" />}
+        />
         <Route path="NewFlat" element={<NewFlat />} />
-        {/* <Route path="/Flat/:id" element={<Flat name="{props.name}" />} /> */}
-        <Route path="/Flat/:id" element={<Flat name={props.name} />} />
+        <Route path="/Flat/:id" element={<Flat flat={detailItem} />} />
       </Routes>
     </BrowserRouter>
   );
