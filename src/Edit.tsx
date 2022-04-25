@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
+import { useNavigate } from "react-router-dom";
 
 const Edit = (props: any) => {
   const { flat } = props;
@@ -28,15 +29,31 @@ const Edit = (props: any) => {
   console.log("content=", content);
   console.log("images=", images);
 
+  const navigate = useNavigate();
+
   return (
     <>
       <section>
-        <input value={name} onChange={(e) => setName(e.target.value)} />
-        <select value={status} onChange={handleChangeStatus}>
-          <option value="Anytime Viewing">Anytime Viewing</option>
-          <option value="Booked">Booked</option>
-          <option value="Not Accepted">Not Accepted</option>
-        </select>
+        <button
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          Cancel
+        </button>
+        <h1>Edit</h1>
+        <section>
+          <h2>Name</h2>
+          <input value={name} onChange={(e) => setName(e.target.value)} />
+        </section>
+        <section>
+          <h2>Status</h2>
+          <select value={status} onChange={handleChangeStatus}>
+            <option value="Anytime Viewing">Anytime Viewing</option>
+            <option value="Booked">Booked</option>
+            <option value="Not Accepted">Not Accepted</option>
+          </select>
+        </section>
         <section>
           <h2>Image gallery</h2>
           <ImageUploading
