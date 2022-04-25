@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<Main passDetail={passDetail} />} />
         <Route path="NewFlat" element={<NewFlat />} />
         <Route path="/Flat/:id" element={<Flat flat={detailItem} />} />
-        <Route path="/Flat/:id/Edit" element={<Edit />} />
+        <Route path="/Flat/:id/Edit" element={<Edit flat={detailItem} />} />
       </Routes>
     </BrowserRouter>
   );

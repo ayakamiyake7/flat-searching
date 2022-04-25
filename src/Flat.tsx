@@ -4,14 +4,20 @@ import { Link } from "react-router-dom";
 const Flat = (props: any) => {
   const { flat } = props;
 
-  const handleClickEdit = () => {
-    console.log("click");
+  const handleClickEdit = (flat: any) => {
+    console.log("flat-props=", props);
   };
 
   return (
     <>
-      <Link to={`flat/${flat.id}/edit`}>
-        <button onClick={handleClickEdit}>Edit</button>
+      <Link to={`edit`}>
+        <button
+          onClick={() => {
+            handleClickEdit(flat);
+          }}
+        >
+          Edit
+        </button>
       </Link>
       <section>
         {flat ? (
