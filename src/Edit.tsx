@@ -1,16 +1,22 @@
 import React, { useState } from "react";
+import ImageUploading from "react-images-uploading";
 
 const Edit = (props: any) => {
   const { flat } = props;
 
   const [name, setName] = useState(flat.name);
   const [status, setStatus] = useState(flat.status);
+  const [images, setImages] = useState(flat.images);
   const [content, setContent] = useState(flat.content);
 
   console.log("edit=", props);
 
   const handleChangeStatus = (e: any) => {
     setStatus(e.target.value);
+  };
+
+  const handleChangeImages = (imageList: any) => {
+    setImages(imageList);
   };
 
   const handleChangeContent = (e: any) => {
@@ -20,6 +26,7 @@ const Edit = (props: any) => {
   console.log("name=", name);
   console.log("status=", status);
   console.log("content=", content);
+  console.log("images=", images);
 
   return (
     <>
@@ -32,10 +39,48 @@ const Edit = (props: any) => {
         </select>
         <section>
           <h2>Image gallery</h2>
-          {flat.images.map((image: any, index: number) => {
-            console.log("key", index);
-            return <img src={image.data_url} alt={flat.name} key={index} />;
-          })}
+          <ImageUploading
+            multiple
+            value={images}
+            onChange={handleChangeImages}
+            dataURLKey="data_url"
+          >
+            {({
+              imageList,
+              onImageUpload,
+              onImageRemoveAll,
+              onImageUpdate,
+              onImageRemove,
+              isDragging,
+              dragProps,
+            }) => (
+              // write your building UI
+              <div>
+                <button
+                  style={isDragging ? { color: "red" } : undefined}
+                  onClick={onImageUpload}
+                  {...dragProps}
+                >
+                  Click or Drop here
+                </button>
+                &nbsp;
+                <button onClick={onImageRemoveAll}>Remove all images</button>
+                {imageList.map((image, index) => (
+                  <div key={index} className="image-item">
+                    <img src={image.data_url} alt="" width="100" />
+                    <div className="image-item__btn-wrapper">
+                      <button onClick={() => onImageUpdate(index)}>
+                        Update
+                      </button>
+                      <button onClick={() => onImageRemove(index)}>
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </ImageUploading>
         </section>
         <section>
           <h2>Content</h2>
