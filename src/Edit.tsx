@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Edit = (props: any) => {
   const { flat } = props;
@@ -30,6 +30,11 @@ const Edit = (props: any) => {
   console.log("images=", images);
 
   const navigate = useNavigate();
+
+  const handleClickUpdate = (name: any, id: number) => {
+    navigate(`/Flat/${id}`, { state: { name: { name } } });
+    console.log("name=", name);
+  };
 
   return (
     <>
@@ -110,6 +115,8 @@ const Edit = (props: any) => {
           <div>1</div>
           <div>2</div>
         </section>
+
+        <button onClick={() => handleClickUpdate}>Update</button>
       </section>
     </>
   );
